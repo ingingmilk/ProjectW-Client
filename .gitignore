@@ -3,3 +3,7 @@ ProjectW.sln
 Assembly-CSharp.csproj
 .vsconfig
 .vs
+Library
+Logs
+obj
+Temp
