@@ -1,34 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public Vector2 inputVec;
+    public Vector2 inputVec;    
     public float speed;
+    public Scanner scanner;
 
     Rigidbody2D rigid;
-    SpriteRenderer spriter;
+    SpriteRenderer[] spriters;
     Animator anim;
    
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        spriter= GetComponent<SpriteRenderer>();
-        anim= GetComponent<Animator>();
+        spriters = GetComponentsInChildren<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        scanner = GetComponent<Scanner>();
     }
    
-    void Update()
-    {
-        //방향키 입력 세팅
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
-    }
-
     void FixedUpdate()
     {
-        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
+        rigid.velocity = new Vector2(inputVec.x, inputVec.y);
+        Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
+    }
+
+    void OnMove(InputValue value)
+    {
+        inputVec = value.Get<Vector2>();
     }
 
     void LateUpdate()
@@ -37,7 +39,8 @@ public class Player : MonoBehaviour
 
         if (inputVec.x != 0)
         {
-            spriter.flipX = inputVec.x < 0;
+            spriters[0].flipX = inputVec.x < 0;
+            spriters[1].flipX = inputVec.x < 0;
         }
     }
 }
