@@ -1,44 +1,49 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public interface ILoader<Key, Value>
-{
-    Dictionary<Key, Value> MakeDict();
-}
+
 
 public class DataManager
 {
-    //public Dictionary<int, Data.PlayerData> PlayerDic { get; private set; } = new Dictionary<int, Data.PlayerData>();
+    public static Dictionary<long, PcDataModel> mPcDataDict;
 
-    //public void Init()
-    //{
-    //    //PlayerDic = LoadJson<Data.PlayerDataLoader, int, Data.PlayerData>("PlayerData.json").MakeDict();
-    //    PlayerDic = LoadXml<Data.PlayerDataLoader, int, Data.PlayerData>("PlayerData.xml").MakeDict();
-    //}
-
-    Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
+    public void Init()
     {
-        TextAsset textAsset = Managers.Resource.Load<TextAsset>($"{path}");
-        return JsonUtility.FromJson<Loader>(textAsset.text);
+        mPcDataDict = LoadJson<long, PcDataModel>("Pc.json").ToDictionary();
+
+        //PlayerDic = LoadJson<Data.PlayerDataLoader, int, Data.PlayerData>("PlayerData.json").MakeDict();
+        //PlayerDic = LoadXml<Data.PlayerDataLoader, int, Data.PlayerData>("PlayerData.xml").MakeDict();
     }
 
-    Item LoadSingleXml<Item>(string name)
+    private Wrapper<TKey, TDataClass> LoadJson<TKey, TDataClass>(string path) where TDataClass : ILoader<TKey>
     {
-        XmlSerializer xs = new XmlSerializer(typeof(Item));
-        TextAsset textAsset = Managers.Resource.Load<TextAsset>(name);
-        using (MemoryStream stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(textAsset.text)))
-            return (Item)xs.Deserialize(stream);
+        var textAsset = Managers.Resource.Load<TextAsset>($"{path}");
+
+        var dataWrapper = JsonUtility.FromJson<Wrapper<TKey, TDataClass>>(textAsset.text);
+        return dataWrapper;
     }
 
-    Loader LoadXml<Loader, Key, Item>(string name) where Loader : ILoader<Key, Item>, new()
+    [Serializable]
+    public class DataContainer
     {
-        XmlSerializer xs = new XmlSerializer(typeof(Loader));
-        TextAsset textAsset = Managers.Resource.Load<TextAsset>(name);
-        using (MemoryStream stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(textAsset.text)))
-            return (Loader)xs.Deserialize(stream);
+        public PcDataModelEx[] dataList;
     }
+
+    public void DeserializeAndCreateDictionary(string path)
+    {
+        var textAsset = Managers.Resource.Load<TextAsset>($"{path}");
+
+        // 수정된 JSON 데이터를 담는 클래스를 생성합니다.
+        
+
+        // JSON 데이터를 역직렬화할 때 DataContainer 클래스를 사용합니다.
+        var container = JsonUtility.FromJson<DataContainer>(textAsset.text);
+        var dataArray = container.dataList;
+        // 이후로는 데이터 처리를 진행합니다.
+    }
+
+
 }

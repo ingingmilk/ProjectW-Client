@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: aca9bbd1eeeb4ff4a8ac32b04ce000fc
   m_SerializeEntries:
   - m_GUID: c82f79a0f0a244444856f79207885b28
-    m_Address: Player.prefab
+    m_Address: Pc_Wiyina.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - prefab
@@ -36,17 +36,17 @@ MonoBehaviour:
     - prefab
     - Prefabs
   - m_GUID: 7db9803f1f50a11438630d49283d3c78
-    m_Address: Monster_Red_01.prefab
+    m_Address: RedRat_01.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Prefabs
   - m_GUID: e4f64a9b50a806a4ba9a38667856a312
-    m_Address: Monster_Normal_01.prefab
+    m_Address: MiniAquaFlare_01.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Prefabs
   - m_GUID: 1fe460474983bbb4f89678861b0351fb
-    m_Address: Monster_Green_01.prefab
+    m_Address: ForestBigfoot_01.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Prefabs

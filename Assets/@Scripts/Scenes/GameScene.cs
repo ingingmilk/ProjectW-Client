@@ -13,13 +13,11 @@ public class GameScene : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             if (count == totalCount)
             {
-                StartLoaded();
-
-                Managers.Resource.LoadAllAsync<TextAsset>("Data", (key3, count3, totalCount3) =>
+                Managers.Resource.LoadAllAsync<TextAsset>("GameData", (key3, count3, totalCount3) =>
                 {
                     if (count3 == totalCount3)
                     {
-                        //StartLoaded();
+                        StartLoaded();
                     }
                 });
             }
@@ -33,7 +31,7 @@ public class GameScene : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void StartLoaded()
     {
-        var player = Managers.Resource.Instantiate("Player.prefab");
+        var player = Managers.Resource.Instantiate("Pc_Wiyina.prefab");
         player.AddComponent<PlayerController>();
 
         var joystick = Managers.Resource.Instantiate("UI_Joystick.prefab");
@@ -45,6 +43,8 @@ public class GameScene : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         map.name = "@Map";
 
         Camera.main.GetComponent<CameraController>().Target = player;
+
+        Managers.Data.Init();
     }
 
     public void OnPointerDown(PointerEventData eventData)

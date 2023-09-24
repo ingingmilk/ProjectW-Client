@@ -44,6 +44,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 05d8e3221b9e0aa42a49f0b00d99dcb3, type: 2}
   - {fileID: 11400000, guid: 12ad436d965b9824487b8c20d5f4772f, type: 2}
   - {fileID: 11400000, guid: d0418f26cc28230499492dad32332688, type: 2}
+  - {fileID: 11400000, guid: f0d4237cbbe5aa24984ea9b84ffc830b, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -88,6 +89,7 @@ MonoBehaviour:
     - resource
     - ui
     - Prefabs
+    - GameData
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 8cf831d342ae48a45b51fb5d8376306b, type: 2}

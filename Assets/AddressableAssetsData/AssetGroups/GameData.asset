@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: 
+  m_GroupName: GameData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 06a5ad68ab308a34b9c03de17c3d5fb9
+  m_SerializeEntries:
+  - m_GUID: 97bebf831bf111e47a018449289c2b57
+    m_Address: Pc.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameData
+  - m_GUID: 7eede4969753206469be7edbe035c422
+    m_Address: Weapon.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameData
+  - m_GUID: f7fe37831e5788648a9ccb23dbe22fbd
+    m_Address: Npc.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameData
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4e4c2b713508e0944be6f470ea730293, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e2cee8b7d49f4a5429df5f4d67399297, type: 2}
+    - {fileID: 11400000, guid: 3aab2f6d9b60bbf48ae8bff590ccc9ea, type: 2}
