@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class GameScene : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class GameScene : MonoBehaviour
 {
 
     void Start()
@@ -31,6 +31,8 @@ public class GameScene : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void StartLoaded()
     {
+        Managers.Data.Init();
+
         var player = Managers.Resource.Instantiate("Pc_Wiyina.prefab");
         player.AddComponent<PlayerController>();
 
@@ -43,17 +45,5 @@ public class GameScene : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         map.name = "@Map";
 
         Camera.main.GetComponent<CameraController>().Target = player;
-
-        Managers.Data.Init();
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("OnPointerDown");
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        Debug.Log("OnPointerUp");
     }
 }
