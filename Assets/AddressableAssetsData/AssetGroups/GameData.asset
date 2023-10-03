@@ -18,17 +18,17 @@ MonoBehaviour:
   m_GUID: 06a5ad68ab308a34b9c03de17c3d5fb9
   m_SerializeEntries:
   - m_GUID: 97bebf831bf111e47a018449289c2b57
-    m_Address: Pc.json
+    m_Address: PcData.json
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameData
   - m_GUID: 7eede4969753206469be7edbe035c422
-    m_Address: Weapon.json
+    m_Address: WeaponData.json
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameData
   - m_GUID: f7fe37831e5788648a9ccb23dbe22fbd
-    m_Address: Npc.json
+    m_Address: NpcData.json
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameData

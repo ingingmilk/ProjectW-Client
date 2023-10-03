@@ -1,11 +1,8 @@
 using System;
 
 [Serializable]
-public class PcDataModel : ILoader<long>
+public class PcDataModel : BaseGameData<long>
 {
-    public long DataKey => TemplateId;
-    public long TemplateId;
-    public string PrefabName;
     public int Level;
     public long MaxExp;
     public long MaxHp;

@@ -1,7 +1,7 @@
 {
   "dataList": [
     {
-      "TemplateId": 1,
+      "TemplateId": 90001,
       "PrefabName": "PlayerPrefab",
       "Level": 10,
       "MaxExp": 1000,
@@ -9,7 +9,7 @@
       "Attack": 20.5
     },
     {
-      "TemplateId": 2,
+      "TemplateId": 90002,
       "PrefabName": "EnemyPrefab",
       "Level": 5,
       "MaxExp": 500,
@@ -17,7 +17,7 @@
       "Attack": 15.0
     },
     {
-      "TemplateId": 3,
+      "TemplateId": 90003,
       "PrefabName": "NPCPrefab",
       "Level": 3,
       "MaxExp": 300,
