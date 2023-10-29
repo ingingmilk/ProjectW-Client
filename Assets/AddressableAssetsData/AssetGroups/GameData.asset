@@ -32,6 +32,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameData
+  - m_GUID: 479138941e7563c42897d23bdfc29168
+    m_Address: StageData.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameData
+  - m_GUID: 422a2d0162a34e543a72ff25c6bec632
+    m_Address: NpcSpawnData.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameData
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4e4c2b713508e0944be6f470ea730293, type: 2}
   m_SchemaSet:

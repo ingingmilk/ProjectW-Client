@@ -1,0 +1,25 @@
+{
+  "dataList": [
+    {
+	  "TemplateId": 1,
+	  "PrefabName": "PlayerPrefab",
+	  "StageNo": 1,
+	  "StateName": "Tutorial-1",	 
+	  "IsTutorial": true
+	},
+    {
+	  "TemplateId": 2,
+	  "PrefabName": "PlayerPrefab",
+	  "StageNo": 2,
+	  "StateName": "Tutorial-2",
+	  "IsTutorial": true
+	},
+	{
+	  "TemplateId": 3,
+	  "PrefabName": "PlayerPrefab",
+	  "StageNo": 3,
+	  "StateName": "Tutorial-3",
+	  "IsTutorial": true
+	}
+  ]
+}

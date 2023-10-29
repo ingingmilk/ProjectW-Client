@@ -1,0 +1,20 @@
+{
+  "dataList": [
+    {
+      "TemplateId": 1,
+	  "PrefabName": "",
+      "SpawnId": 1,
+      "MaxSpawnCount": 10,
+      "SpawnInterval": 1000,
+	  "SpawnNpcIdList": [ 1, 2 ]
+    },
+    {
+      "TemplateId": 2,
+	  "PrefabName": "",
+      "SpawnId": 2,
+      "MaxSpawnCount": 10,
+      "SpawnInterval": 1000,
+	  "SpawnNpcIdList": [ 3, 4 ]
+    }
+  ]
+}

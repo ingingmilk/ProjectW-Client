@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 public class GameScene : MonoBehaviour
 {
 
+    SpawningPool _spawningPool;
+
     void Start()
     {
         Managers.Resource.LoadAllAsync<GameObject>("Prefabs", (key, count, totalCount) =>
@@ -31,6 +33,8 @@ public class GameScene : MonoBehaviour
 
     void StartLoaded()
     {
+        _spawningPool = new SpawningPool();
+
         Managers.Data.Init();
 
         var player = Managers.Resource.Instantiate("Pc_Wiyina.prefab");

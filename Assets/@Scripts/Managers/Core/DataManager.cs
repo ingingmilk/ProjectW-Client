@@ -18,18 +18,33 @@ public class DataManager
         var pcDataDict = LoadJson<long, PcDataModel>("PcData.json").ToDictionary();
         var npcDataDict = LoadJson<long, NpcDataModel>("NpcData.json").ToDictionary();
         var weaponDataDict = LoadJson<long, WeaponDataModel>("WeaponData.json").ToDictionary();
+        
+        var stageDataDict = LoadJson<long, StageDataModel>("StageData.json").ToDictionary();
+        var npcSpawnDataDict = LoadJson<long, NpcSpawnModel>("NpcSpawnData.json").ToDictionary();
 
         mGameDataDict[typeof(PcDataModel)] = pcDataDict;
         mGameDataDict[typeof(NpcDataModel)] = npcDataDict;
         mGameDataDict[typeof(WeaponDataModel)] = weaponDataDict;
+        mGameDataDict[typeof(StageDataModel)] = stageDataDict;
+        mGameDataDict[typeof(NpcSpawnModel)] = npcSpawnDataDict;
+
+        Debug.Log("[Complete] DataManager Load");
     }
 
     private Wrapper<TKey, TDataClass> LoadJson<TKey, TDataClass>(string path) where TDataClass : IDataLoader<TKey>, IGameData
     {
-        var textAsset = Managers.Resource.Load<TextAsset>($"{path}");
+        try
+        {
+            var textAsset = Managers.Resource.Load<TextAsset>($"{path}");
 
-        var dataWrapper = JsonUtility.FromJson<Wrapper<TKey, TDataClass>>(textAsset.text);
-        return dataWrapper;
+            var dataWrapper = JsonUtility.FromJson<Wrapper<TKey, TDataClass>>(textAsset.text);
+            return dataWrapper;
+        }
+        catch(Exception ex)
+        {
+            Debug.LogException(ex);
+            return null;
+        }
     }
 
     public IGameData Get<T>(long templateID) where T : BaseController, IGameData
