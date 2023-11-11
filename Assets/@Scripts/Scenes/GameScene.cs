@@ -33,9 +33,9 @@ public class GameScene : MonoBehaviour
 
     void StartLoaded()
     {
-        _spawningPool = new SpawningPool();
-
         Managers.Data.Init();
+
+        _spawningPool = gameObject.AddComponent<SpawningPool>();
 
         var player = Managers.Resource.Instantiate("Pc_Wiyina.prefab");
         player.AddComponent<PlayerController>();

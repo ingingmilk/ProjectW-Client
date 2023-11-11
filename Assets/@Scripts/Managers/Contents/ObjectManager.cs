@@ -16,19 +16,22 @@ public class ObjectManager : MonoBehaviour
 
     }
 
-    public T Spawn<T>(int templateID = 0) where T : BaseController
+    public T Spawn<T>(NpcDataModel npcData, bool isPooling = false) where T : BaseController
     {
-        System.Type type = typeof(T);
+        var spawnObject = Managers.Resource.Instantiate(npcData.PrefabStringKey, pooling: isPooling);
+        if(spawnObject == null)
+        {
+            return null;
+        }
 
-        // TODO : Data
-        var gameData = Managers.Data.GetData<T>(templateID);
+        MonsterController mc = spawnObject.GetOrAddComponent<MonsterController>();
+        if(mc.SetGameData(npcData) == true)
+        {
+            Monsters.Add(mc);
+            return mc as T;
+        }
 
-        var prefabGameObj = Managers.Resource.Instantiate(gameData.PrefabStringKey, pooling: true);
-
-        //var spawnObject = go.GetOrAddComponent<T>();
-        //Player = pc;
-
-        return null;
+        return mc as T;
     }
 
     public T SpawnOld<T>(int templateID = 0) where T : BaseController

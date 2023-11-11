@@ -20,6 +20,11 @@ public class BaseController : MonoBehaviour
         return true;
     }
 
+    public virtual bool SetGameData(IGameData gameData)
+    {
+        return false;
+    }
+
     // Update is called once per frame
     void Update()
     {

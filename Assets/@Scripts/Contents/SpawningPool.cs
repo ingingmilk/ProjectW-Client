@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class SpawningPool : MonoBehaviour
@@ -31,8 +32,19 @@ public class SpawningPool : MonoBehaviour
         if (monsterCount >= _maxMonsterCount)
             return;
 
-        // TEMP : DataID ?
-        MonsterController mc = Managers.Object.Spawn<MonsterController>(Random.Range(0, 2));
-        mc.transform.position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+        var templateID = 1; // TODO : 서버에서 받아온 데이타
+        var stageData = Managers.Data.GetByTemplateId<StageDataModel>(templateID);
+
+        foreach(var spawnId in stageData.SpawnIdList)
+        {
+            var spawnMonsterData = Managers.Data.GetByTemplateId<NpcSpawnModel>(spawnId);
+            foreach (var spawnNpcId in spawnMonsterData.SpawnNpcIdList)
+            {
+                var npcData = Managers.Data.GetByTemplateId<NpcDataModel>(spawnNpcId);
+                
+                var mc = Managers.Object.Spawn<MonsterController>(npcData);
+                mc.transform.position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+            }
+        }
     }
 }

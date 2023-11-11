@@ -7,4 +7,5 @@ public class StageDataModel : BaseGameData<long>
     public int StageNo;
     public string StateName;
     public bool IsTutorial;
+    public List<int> SpawnIdList;
 }

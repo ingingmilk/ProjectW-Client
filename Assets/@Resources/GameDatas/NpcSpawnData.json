@@ -6,7 +6,7 @@
       "SpawnId": 1,
       "MaxSpawnCount": 10,
       "SpawnInterval": 1000,
-	  "SpawnNpcIdList": [ 1, 2 ]
+	  "SpawnNpcIdList": [ 10001, 10002 ]
     },
     {
       "TemplateId": 2,
@@ -14,7 +14,7 @@
       "SpawnId": 2,
       "MaxSpawnCount": 10,
       "SpawnInterval": 1000,
-	  "SpawnNpcIdList": [ 3, 4 ]
+	  "SpawnNpcIdList": [ 10003, 10004 ]
     }
   ]
 }

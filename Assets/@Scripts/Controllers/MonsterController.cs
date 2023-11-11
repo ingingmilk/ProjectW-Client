@@ -4,6 +4,7 @@ using UnityEngine;
 public class MonsterController : CreatureController
 {
     private Coroutine _coDotDamage;
+    private NpcDataModel _npcData;
 
     public override bool Init()
     {
@@ -15,6 +16,12 @@ public class MonsterController : CreatureController
         ObjectType = Define.ObjectType.Monster;
 
         return true;
+    }
+
+    public override bool SetGameData(IGameData gameData)
+    {
+        _npcData = gameData as NpcDataModel;
+        return _npcData != null;
     }
 
     private void FixedUpdate()
