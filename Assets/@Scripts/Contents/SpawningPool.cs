@@ -41,6 +41,10 @@ public class SpawningPool : MonoBehaviour
             foreach (var spawnNpcId in spawnMonsterData.SpawnNpcIdList)
             {
                 var npcData = Managers.Data.GetByTemplateId<NpcDataModel>(spawnNpcId);
+                if(npcData == null)
+                {
+                    continue;
+                }
                 
                 var mc = Managers.Object.Spawn<MonsterController>(npcData);
                 mc.transform.position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));

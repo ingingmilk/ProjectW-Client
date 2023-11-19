@@ -6,7 +6,7 @@
 	  "StageNo": 1,
 	  "StateName": "Tutorial-1",	 
 	  "IsTutorial": true,
-	  "SpawnIdList": [ 1, 2 ]
+	  "SpawnIdList": [ 1 ]
 	},
     {
 	  "TemplateId": 2,
