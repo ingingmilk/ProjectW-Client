@@ -4,16 +4,12 @@
       "TemplateId": 1,
 	  "PrefabName": "",
       "SpawnId": 1,
-      "MaxSpawnCount": 10,
-      "SpawnInterval": 1000,
 	  "SpawnNpcIdList": [ 10001 ]
     },
     {
       "TemplateId": 2,
 	  "PrefabName": "",
       "SpawnId": 2,
-      "MaxSpawnCount": 10,
-      "SpawnInterval": 1000,
 	  "SpawnNpcIdList": [ 10003 ]
     }
   ]

@@ -5,8 +5,6 @@ using System.Collections.Generic;
 public class NpcSpawnModel : BaseGameData<long>
 {
     public int SpawnId;
-    public int MaxSpawnCount;
-    public int SpawnInterval;
     public List<int> SpawnNpcIdList;
 }
 

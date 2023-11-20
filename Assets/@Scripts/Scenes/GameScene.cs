@@ -4,8 +4,7 @@ using UnityEngine.UIElements;
 
 public class GameScene : MonoBehaviour
 {
-
-    SpawningPool _spawningPool;
+    private SpawningPool _spawningPool;
 
     void Start()
     {
@@ -34,8 +33,12 @@ public class GameScene : MonoBehaviour
     void StartLoaded()
     {
         Managers.Data.Init();
+        
+        var templateID = 1;
+        var stageData = Managers.Data.GetByTemplateId<StageDataModel>(templateID);
 
         _spawningPool = gameObject.AddComponent<SpawningPool>();
+        _spawningPool.StartSpawn(stageData);
 
         var player = Managers.Resource.Instantiate("Pc_Wiyina.prefab");
         player.AddComponent<PlayerController>();

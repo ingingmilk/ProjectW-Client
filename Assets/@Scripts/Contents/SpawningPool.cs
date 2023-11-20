@@ -8,13 +8,23 @@ public class SpawningPool : MonoBehaviour
     // 리스폰 주기는? 
     // 몬스터 최대 개수는?
     // 스톱?
-    float _spawnInterval = 0.1f;
-    int _maxMonsterCount = 100;
-    Coroutine _coUpdateSpawningPool;
+    private StageDataModel _stageData;
+    private Coroutine _coUpdateSpawningPool;
 
     void Start()
     {
+    }
+
+    public void StartSpawn(StageDataModel stageData)
+    {
+        _stageData = stageData;
+
         _coUpdateSpawningPool = StartCoroutine(CoUpdateSpawningPool());
+    }
+
+    public void StopSpawn()
+    {
+
     }
 
     IEnumerator CoUpdateSpawningPool()
@@ -22,22 +32,24 @@ public class SpawningPool : MonoBehaviour
         while (true)
         {
             TrySpawn();
-            yield return new WaitForSeconds(_spawnInterval);
+            yield return new WaitForSeconds(_stageData.SpawnInterval / 1000);
         }
     }
 
     void TrySpawn()
     {
         int monsterCount = Managers.Object.Monsters.Count;
-        if (monsterCount >= _maxMonsterCount)
+        if (monsterCount >= _stageData.MaxSpawnCount)
+        {
+            // 코루틴 스탑
             return;
+        }
+            
 
-        var templateID = 1; // TODO : 서버에서 받아온 데이타
-        var stageData = Managers.Data.GetByTemplateId<StageDataModel>(templateID);
-
-        foreach(var spawnId in stageData.SpawnIdList)
+        foreach (var spawnId in _stageData.SpawnIdList)
         {
             var spawnMonsterData = Managers.Data.GetByTemplateId<NpcSpawnModel>(spawnId);
+            
             foreach (var spawnNpcId in spawnMonsterData.SpawnNpcIdList)
             {
                 var npcData = Managers.Data.GetByTemplateId<NpcDataModel>(spawnNpcId);

@@ -6,6 +6,8 @@
 	  "StageNo": 1,
 	  "StateName": "Tutorial-1",	 
 	  "IsTutorial": true,
+	  "MaxSpawnCount": 10,
+	  "SpawnInterval": 1000,
 	  "SpawnIdList": [ 1 ]
 	},
     {
