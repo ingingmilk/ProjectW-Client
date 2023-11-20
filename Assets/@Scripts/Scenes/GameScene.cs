@@ -1,3 +1,4 @@
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -40,8 +41,10 @@ public class GameScene : MonoBehaviour
         _spawningPool = gameObject.AddComponent<SpawningPool>();
         _spawningPool.StartSpawn(stageData);
 
-        var player = Managers.Resource.Instantiate("Pc_Wiyina.prefab");
-        player.AddComponent<PlayerController>();
+        //var player = Managers.Resource.Instantiate("Pc_Wiyina.prefab");
+        //player.AddComponent<PlayerController>();
+
+        var pc = Managers.Object.SpawnPlayer("Pc_Wiyina.prefab");
 
         var joystick = Managers.Resource.Instantiate("UI_Joystick.prefab");
         joystick.name = "@UI_Joystick";
@@ -51,6 +54,6 @@ public class GameScene : MonoBehaviour
         var map = Managers.Resource.Instantiate("Map.prefab");
         map.name = "@Map";
 
-        Camera.main.GetComponent<CameraController>().Target = player;
+        Camera.main.GetComponent<CameraController>().Target = pc.gameObject;
     }
 }

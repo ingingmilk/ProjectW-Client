@@ -24,7 +24,7 @@ public class ObjectManager : MonoBehaviour
             return null;
         }
 
-        MonsterController mc = spawnObject.GetOrAddComponent<MonsterController>();
+        var mc = spawnObject.GetOrAddComponent<MonsterController>();
         if(mc.SetGameData(npcData) == true)
         {
             Monsters.Add(mc);
@@ -32,6 +32,25 @@ public class ObjectManager : MonoBehaviour
         }
 
         return mc as T;
+    }
+
+    public PlayerController SpawnPlayer(string prefabStringKey, bool isPooling = false)
+    {
+        var spawnObject = Managers.Resource.Instantiate(prefabStringKey, pooling: isPooling);
+        if (spawnObject == null)
+        {
+            return null;
+        }
+
+        var pc = spawnObject.GetOrAddComponent<PlayerController>();
+        Player = pc;
+        //if (pc.SetGameData(npcData) == true)
+        //{
+        //    Monsters.Add(mc);
+        //    return mc as T;
+        //}
+
+        return Player;
     }
 
     public T SpawnOld<T>(int templateID = 0) where T : BaseController
